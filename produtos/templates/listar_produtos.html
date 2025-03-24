@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- + VISTOS -->
+    <div id="produtos-destaque" class="container pb-5">
+
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+        <h3>Produtos Recentes</h3>
+        <hr>
+        <div class="row">
+            {% for produto in produtos_recentes %}
+            <div class="col-md-3">
+                {% include 'partials/produto/card_produto.html' %}
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    <!--  / + VISTOS -->
+
+    <!-- OFERTA -->
+
+    <div id="produtos-promocoes" class="container pt-5">
+        <h3>Roupas</h3>
+        <hr>
+        <div class="row">
+            {% for roupa in roupas %}            
+            <div class="col-md-3">
+                {% include 'partials/produto/card_produto.html' with produto=roupa %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- /OFERTA -->
+{% endblock %}
