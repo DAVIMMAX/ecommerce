@@ -1,8 +1,8 @@
 from django.test import TestCase # Módulo padrão de testes
 from django.utils import timezone #Necessário para comparações de tempo. 
 from produtos.models import Produto, Categoria #Módulos que deverão ser testados
-import time
 from django.core.exceptions import ValidationError #Necessário nos testes de validação 
+import time
 
 
 class CriarCategoriaTeste(TestCase):#testando a criação de uma nova categoria.
@@ -15,7 +15,7 @@ class CriarCategoriaTeste(TestCase):#testando a criação de uma nova categoria.
 
 class CriarProdutoTeste(TestCase):
     def setUp(self): #Convenção do framework para testes, ele vai "setar" esse objeto para que as funções de teste referenciem o objeto criado aqui. 
-        self.categoria = Categoria.objects.create(nome="Informática")# Por se tratar de 
+        self.categoria = Categoria.objects.create(nome="Informática")# Por se tratar de uma classe necessária para os testes posteriores, adicionamos uma categoria apenas para a realização dos testes.
     
     def teste_cria_produto(self):
         produto = Produto.objects.create(
